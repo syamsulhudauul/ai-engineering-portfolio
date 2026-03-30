@@ -1,8 +1,8 @@
 const contactLinks = [
   {
     label: "Email",
-    href: "mailto:syamsulhuda@example.com",
-    value: "syamsulhuda@example.com",
+    href: "mailto:syamsulhuda.uul@gmail.com",
+    value: "syamsulhuda.uul@gmail.com",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -42,11 +42,15 @@ export default function Contact() {
         <h2 className="text-4xl font-bold text-white mb-4">
           Let&apos;s Work Together
         </h2>
-        <p className="text-slate-400 leading-relaxed mb-12 max-w-xl mx-auto">
+        <p className="text-slate-400 leading-relaxed mb-4 max-w-xl mx-auto">
           Whether you need an LLM-powered feature, a RAG system, a multi-agent
           architecture, or a high-performance Go backend — I&apos;m open to
-          freelance projects, consulting, and full-time opportunities.
+          contract projects, consulting, and full-time opportunities.
         </p>
+        <div className="flex items-center justify-center gap-2 mb-12">
+          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+          <span className="text-green-400 text-sm font-mono uppercase tracking-widest">Available for contracts now</span>
+        </div>
 
         {/* Contact cards */}
         <div className="grid sm:grid-cols-3 gap-4 mb-12">
@@ -70,7 +74,7 @@ export default function Contact() {
         </div>
 
         <a
-          href="mailto:syamsulhuda@example.com"
+          href="mailto:syamsulhuda.uul@gmail.com"
           className="inline-flex items-center gap-2 bg-violet-600 hover:bg-violet-500 text-white font-semibold px-10 py-4 rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-violet-500/25 text-lg"
         >
           Say Hello

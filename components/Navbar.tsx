@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Logo from "@/components/Logo";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -28,9 +29,12 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#" className="text-white font-semibold text-lg tracking-tight">
-          <span className="text-violet-400">S</span>yamsul{" "}
-          <span className="text-violet-400">H</span>uda
+        <a href="#" className="flex items-center gap-3 group">
+          <Logo size={36} className="transition-transform duration-300 group-hover:scale-110" />
+          <span className="text-white font-semibold text-sm tracking-tight hidden lg:block">
+            <span className="text-violet-400">S</span>yamsul{" "}
+            <span className="text-violet-400">H</span>uda
+          </span>
         </a>
         <ul className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (

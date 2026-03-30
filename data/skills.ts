@@ -5,6 +5,17 @@ export interface SkillCategory {
 
 export const skillCategories: SkillCategory[] = [
   {
+    name: "Backend Engineering",
+    skills: [
+      "Go (gRPC, microservices, DDD)",
+      "Hexagonal Architecture",
+      "Protocol Buffers / gRPC",
+      "Python (FastAPI, async)",
+      "REST API Design",
+      "SonarQube · Code Review",
+    ],
+  },
+  {
     name: "AI / LLM",
     skills: [
       "LLM Integration (OpenAI, Anthropic)",
@@ -13,16 +24,6 @@ export const skillCategories: SkillCategory[] = [
       "MCP (Model Context Protocol)",
       "Vector Databases (ChromaDB, Qdrant, pgvector)",
       "Prompt Engineering",
-    ],
-  },
-  {
-    name: "Backend Engineering",
-    skills: [
-      "Go (gRPC, microservices, DDD)",
-      "Python (FastAPI, async)",
-      "Protocol Buffers / gRPC",
-      "Hexagonal Architecture",
-      "REST API Design",
     ],
   },
   {

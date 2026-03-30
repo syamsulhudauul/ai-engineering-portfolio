@@ -1,9 +1,9 @@
 const focusAreas = [
-  { label: "LLM Application Development", detail: "OpenAI, Anthropic APIs" },
-  { label: "Agentic AI Systems", detail: "Multi-agent, tool use, MCP" },
-  { label: "Retrieval-Augmented Generation", detail: "RAG pipelines, vector search" },
-  { label: "Backend Engineering", detail: "Go, Python, gRPC, microservices" },
-  { label: "Real-time Systems", detail: "SSE streaming, MQTT, Pub/Sub" },
+  { label: "Go Backend Engineering", detail: "gRPC, microservices, DDD, hexagonal architecture" },
+  { label: "LLM Application Development", detail: "OpenAI, Anthropic APIs, multi-provider routing" },
+  { label: "Agentic AI Systems", detail: "Multi-agent, tool use, MCP protocol" },
+  { label: "Retrieval-Augmented Generation", detail: "RAG pipelines, vector search, embeddings" },
+  { label: "AI Code Quality & Review", detail: "SonarQube, CI/CD, production standards" },
 ];
 
 export default function About() {
@@ -17,19 +17,20 @@ export default function About() {
               About Me
             </p>
             <h2 className="text-4xl font-bold text-white mb-6 leading-tight">
-              AI Engineer with Software Engineering Foundations
+              Go Engineer Building Production LLM Systems
             </h2>
             <p className="text-slate-400 leading-relaxed mb-6">
-              I&apos;m an AI Engineer and Software Engineer with hands-on
-              experience building production-grade intelligent systems — from
-              multi-agent LLM orchestration and RAG pipelines to gRPC
-              microservices and MCP protocol integrations.
+              3+ years building production-grade backend systems in Go — from
+              gRPC microservices and MCP protocol bridges to LLM-powered
+              assistants and multi-agent AI architectures. I validate and review
+              AI-generated code against production standards using SonarQube
+              quality gates, hexagonal architecture, and Jenkins CI/CD.
             </p>
             <p className="text-slate-400 leading-relaxed">
-              I bridge the gap between cutting-edge AI research and reliable,
-              scalable software engineering. My work spans the full stack — from
-              designing agent architectures to shipping production Go backends
-              with hexagonal architecture and full observability.
+              I bridge the gap between LLM capabilities and reliable backend
+              engineering. My systems handle real traffic in production with full
+              observability (Datadog), multi-provider LLM routing, and
+              battle-tested Go patterns.
             </p>
           </div>
 
