@@ -2,7 +2,6 @@
 
 import React, { useLayoutEffect, useRef, useState, useEffect } from "react";
 import gsap from "gsap";
-import Logo from "@/components/Logo";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -120,16 +119,23 @@ export default function Hero() {
 
   return (
     <section
+      id="top"
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-24"
     >
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-40 -left-40 h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,199,0,0.28),transparent_60%)]" />
+        <div className="absolute -bottom-44 -right-44 h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.22),transparent_60%)]" />
+        <div className="absolute top-20 right-24 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.16),transparent_60%)]" />
+      </div>
+
       {/* Mouse-reactive grid */}
       <div
-        className="hero-grid absolute inset-0 opacity-[0.15] pointer-events-none"
+        className="hero-grid absolute inset-0 opacity-[0.35] pointer-events-none"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.12) 1px, transparent 1px)",
+            "linear-gradient(rgba(15,23,42,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(15,23,42,0.06) 1px, transparent 1px)",
           backgroundSize: "80px 80px",
           backgroundPosition: "center center",
           transform: `perspective(900px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`,
@@ -178,7 +184,7 @@ export default function Hero() {
             <line
               key={i}
               x1={x1} y1={y1} x2={x2} y2={y2}
-              stroke="rgba(139,92,246,0.35)"
+              stroke="rgba(99,102,241,0.28)"
               strokeWidth="1"
               className="flow-edge"
               style={{ animationDelay: `${i * 0.35}s` }}
@@ -195,7 +201,7 @@ export default function Hero() {
               cy={`${n.y * 100}%`}
               r={i === 0 ? "16" : "10"}
               fill="none"
-              stroke="rgba(139,92,246,0.12)"
+              stroke="rgba(99,102,241,0.16)"
               strokeWidth="1"
             />
             {/* Core dot */}
@@ -203,7 +209,7 @@ export default function Hero() {
               cx={`${n.x * 100}%`}
               cy={`${n.y * 100}%`}
               r="3"
-              fill={i === 0 ? "rgba(167,139,250,0.9)" : "rgba(139,92,246,0.7)"}
+              fill={i === 0 ? "rgba(99,102,241,0.95)" : "rgba(168,85,247,0.75)"}
               className="node-core"
               style={{ animationDelay: `${i * 0.4}s` }}
             />
@@ -211,45 +217,54 @@ export default function Hero() {
         ))}
       </svg>
 
-      <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black to-transparent z-10" />
-
-      {/* Top Left Logo */}
-      <div className="hero-element absolute top-8 left-8 z-30 hidden md:block">
-        <Logo size={72} />
-      </div>
+      <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-background to-transparent z-10" />
 
       <div ref={textRef} className="relative z-20 w-full px-6 flex flex-col justify-end min-h-[50vh] pb-24 max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-8">
 
           {/* Typewriter title */}
           <div className="hero-element">
-            <span className="block text-violet-400/70 font-mono text-sm md:text-base tracking-[0.35em] mb-3">
+            <span className="block text-foreground/60 font-mono text-sm md:text-base tracking-[0.35em] mb-3">
               $ whoami
             </span>
-            <h1 className="text-6xl md:text-8xl lg:text-[9rem] font-bold text-white leading-[0.85] tracking-tighter mix-blend-difference font-mono">
+            <h1 className="text-balance break-words text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-bold text-foreground leading-[1.05] tracking-tight font-mono">
               {role}
-              <span className="animate-pulse text-violet-400">_</span>
+              <span className="animate-pulse text-indigo-500">_</span>
             </h1>
           </div>
 
           <div className="max-w-xs md:max-w-sm flex flex-col gap-6">
-            <p className="hero-element text-lg md:text-xl text-white/60 leading-relaxed font-light">
-              Building intelligent systems using advanced orchestration,
-              state-of-the-art models, and high-throughput backends.
+            <p className="hero-element text-base md:text-lg text-foreground/70 leading-relaxed">
+              Freelance AI Engineer untuk LLM integration, agentic workflows, RAG pipelines, dan backend Go/Python yang siap production.
             </p>
 
             <div className="hero-element flex flex-wrap gap-2">
               {["Go", "LLMs", "MCP", "RAG", "Multi-Agent"].map((tag) => (
                 <span
                   key={tag}
-                  className="text-xs uppercase tracking-widest border border-violet-500/40 bg-violet-500/10 px-3 py-1 rounded-full text-violet-300 backdrop-blur-md font-mono"
+                  className="text-xs uppercase tracking-widest border border-border bg-card/70 px-3 py-1 rounded-full text-foreground/70 backdrop-blur-md font-mono"
                 >
                   {tag}
                 </span>
               ))}
             </div>
 
-            <div className="hero-element animate-bounce mt-4 opacity-50 text-white">
+            <div className="hero-element flex flex-col sm:flex-row gap-3">
+              <a
+                href="#projects"
+                className="inline-flex items-center justify-center rounded-full bg-foreground text-background px-5 py-3 text-sm font-semibold hover:opacity-90 transition-opacity"
+              >
+                Lihat Project
+              </a>
+              <a
+                href="mailto:syamsulhuda.uul@gmail.com"
+                className="inline-flex items-center justify-center rounded-full border border-border bg-card/70 px-5 py-3 text-sm font-semibold text-foreground hover:bg-card transition-colors"
+              >
+                Email untuk Deal
+              </a>
+            </div>
+
+            <div className="hero-element animate-bounce mt-4 opacity-50 text-foreground">
               <svg
                 width="24"
                 height="24"
