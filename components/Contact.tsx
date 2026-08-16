@@ -49,7 +49,7 @@ export default function Contact() {
         </p>
         <div className="flex items-center justify-center gap-2 mb-12">
           <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-          <span className="text-green-400 text-sm font-mono uppercase tracking-widest">Available for contracts now</span>
+          <span className="text-green-400 text-sm font-mono uppercase tracking-widest">Open to full-time &amp; contract — relocation ready</span>
         </div>
 
         {/* Contact cards */}

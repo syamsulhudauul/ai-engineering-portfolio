@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ROLES = ["GO BACKEND ENGINEER", "LLM ENGINEER", "AGENT ARCHITECT", "AI/ML ENGINEER"];
+const ROLES = ["SENIOR AI ENGINEER", "LLM ENGINEER", "AGENT ARCHITECT", "GO BACKEND ENGINEER"];
 
 function useTypewriter(words: string[], speed = 75, pause = 2000) {
   const [displayed, setDisplayed] = useState(words[0]);
@@ -235,7 +235,7 @@ export default function Hero() {
 
           <div className="max-w-xs md:max-w-sm flex flex-col gap-6">
             <p className="hero-element text-base md:text-lg text-foreground/70 leading-relaxed">
-              Freelance AI Engineer untuk LLM integration, agentic workflows, RAG pipelines, dan backend Go/Python yang siap production.
+              Senior AI Engineer building production LLM agents, RAG pipelines, and the Go backends underneath them — for products serving millions of users. Open to full-time roles and contract work.
             </p>
 
             <div className="hero-element flex flex-wrap gap-2">
@@ -254,13 +254,13 @@ export default function Hero() {
                 href="#projects"
                 className="inline-flex items-center justify-center rounded-full bg-foreground text-background px-5 py-3 text-sm font-semibold hover:opacity-90 transition-opacity"
               >
-                Lihat Project
+                View Projects
               </a>
               <a
                 href="mailto:syamsulhuda.uul@gmail.com"
                 className="inline-flex items-center justify-center rounded-full border border-border bg-card/70 px-5 py-3 text-sm font-semibold text-foreground hover:bg-card transition-colors"
               >
-                Email untuk Deal
+                Get in Touch
               </a>
             </div>
 

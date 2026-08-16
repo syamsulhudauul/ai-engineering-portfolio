@@ -20,16 +20,18 @@ export default function About() {
               Go Engineer Building Production LLM Systems
             </h2>
             <p className="text-slate-400 leading-relaxed mb-6">
-              3+ years building production-grade backend systems in Go — from
-              gRPC microservices and MCP protocol bridges to LLM-powered
-              assistants and multi-agent AI architectures. I validate and review
-              AI-generated code against production standards using SonarQube
-              quality gates, hexagonal architecture, and Jenkins CI/CD.
+              8+ years building production-grade backend systems in Go — now
+              focused on applied AI. At ASTRO (Indonesian quick-commerce) I am
+              the primary engineer on the production conversational AI shopping
+              assistant: a tool-using ReAct agent with hybrid retrieval
+              (NDCG@10 0.808), a multi-provider LLM gateway, and an evaluation
+              harness that gates every release.
             </p>
             <p className="text-slate-400 leading-relaxed">
-              I bridge the gap between LLM capabilities and reliable backend
-              engineering. My systems handle real traffic in production with full
-              observability (Datadog), multi-provider LLM routing, and
+              Previously at ByteDance (495M-record chat migration, +16% GMV from
+              search optimization) and 5+ years at Tokopedia owning Product
+              Detail Page performance at high traffic. I bridge LLM capabilities
+              and reliable backend engineering — observability, eval gates, and
               battle-tested Go patterns.
             </p>
           </div>

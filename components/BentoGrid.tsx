@@ -61,7 +61,7 @@ const IntroCard = () => (
     {/* Stats bar */}
     <div className="mt-6 grid grid-cols-3 gap-4 border-t border-border pt-6">
       {[
-        { value: "3+", label: "Years Backend" },
+        { value: "8+", label: "Years Backend" },
         { value: "5", label: "Production Systems" },
         { value: "Go", label: "Primary Language" },
       ].map((stat) => (
