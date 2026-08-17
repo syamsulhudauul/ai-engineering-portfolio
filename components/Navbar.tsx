@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useLenis } from "@studio-freight/react-lenis";
 import Logo from "@/components/Logo";
 
 const navLinks = [
@@ -11,6 +12,16 @@ const navLinks = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const lenis = useLenis();
+
+  const smoothTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    if (href === "#top") {
+      lenis?.scrollTo(0, { duration: 1.2 });
+    } else {
+      lenis?.scrollTo(href, { offset: -90, duration: 1.2 });
+    }
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -27,7 +38,7 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-3 flex items-center justify-between gap-4">
-        <a href="#top" className="flex items-center gap-3 group shrink-0">
+        <a href="#top" onClick={(e) => smoothTo(e, "#top")} className="flex items-center gap-3 group shrink-0">
           <Logo
             size={34}
             className="transition-transform duration-300 group-hover:scale-105"
@@ -41,6 +52,7 @@ export default function Navbar() {
             <li>
               <a
                 href="#top"
+                onClick={(e) => smoothTo(e, "#top")}
                 className="text-sm px-3 py-1.5 rounded-full text-foreground/70 hover:text-foreground hover:bg-muted transition-colors"
               >
                 Home
@@ -50,6 +62,7 @@ export default function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
+                  onClick={(e) => smoothTo(e, link.href)}
                   className="text-sm px-3 py-1.5 rounded-full text-foreground/70 hover:text-foreground hover:bg-muted transition-colors"
                 >
                   {link.label}
@@ -69,6 +82,7 @@ export default function Navbar() {
           </a>
           <a
             href="#contact"
+            onClick={(e) => smoothTo(e, "#contact")}
             className="inline-flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-full bg-foreground text-background hover:opacity-90 transition-opacity"
           >
             Hire Me

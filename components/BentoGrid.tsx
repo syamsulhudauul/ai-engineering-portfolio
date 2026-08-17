@@ -150,10 +150,10 @@ const ContactCard = () => (
 
     <div className="z-10">
       <h3 className="text-2xl font-bold text-foreground mb-2">Let&apos;s connect</h3>
-      <p className="text-foreground/70 text-sm">Open to contract opportunities</p>
+      <p className="text-foreground/70 text-sm">Open to full-time roles &amp; contract work</p>
       <div className="flex items-center gap-2 mt-2">
         <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-        <span className="text-emerald-600 text-xs font-mono uppercase tracking-widest">Available now</span>
+        <span className="text-emerald-600 text-xs font-mono uppercase tracking-widest">Relocation ready</span>
       </div>
     </div>
 
@@ -178,35 +178,54 @@ const ContactCard = () => (
 
 // ─── Agent Flow Card ──────────────────────────────────────────────────────────
 
+// Real production pipeline (ASTRO conversational shopping assistant)
 const AGENT_NODES = [
-  { id: "orch",   label: "ORCHESTRATOR",   x: 200, y: 40,  color: "#a78bfa" },
-  { id: "rag",    label: "RAG Agent",      x: 60,  y: 140, color: "#818cf8" },
-  { id: "code",   label: "Code Agent",     x: 200, y: 140, color: "#818cf8" },
-  { id: "search", label: "Search Agent",   x: 340, y: 140, color: "#818cf8" },
-  { id: "result", label: "Tool Results",   x: 200, y: 230, color: "#6d28d9" },
+  { id: "guard",     label: "GUARD",          x: 52,  y: 44,  color: "#818cf8" },
+  { id: "under",     label: "UNDERSTAND",     x: 150, y: 44,  color: "#818cf8" },
+  { id: "react",     label: "REACT LOOP",     x: 248, y: 44,  color: "#a78bfa" },
+  { id: "synth",     label: "SYNTHESIS",      x: 346, y: 44,  color: "#818cf8" },
+  { id: "persist",   label: "PERSIST",        x: 434, y: 44,  color: "#818cf8" },
+  { id: "search",    label: "HYBRID SEARCH",  x: 100, y: 138, color: "#6d28d9" },
+  { id: "gateway",   label: "LLM GATEWAY",    x: 248, y: 138, color: "#6d28d9" },
+  { id: "evals",     label: "EVAL GATE",      x: 396, y: 138, color: "#6d28d9" },
 ];
 
 const AGENT_EDGES = [
   { from: 0, to: 1, delay: "0s"    },
-  { from: 0, to: 2, delay: "0.5s"  },
-  { from: 0, to: 3, delay: "1s"    },
-  { from: 1, to: 4, delay: "1.5s"  },
-  { from: 2, to: 4, delay: "2s"    },
-  { from: 3, to: 4, delay: "2.5s"  },
+  { from: 1, to: 2, delay: "0.6s"  },
+  { from: 2, to: 3, delay: "1.2s"  },
+  { from: 3, to: 4, delay: "1.8s"  },
+  { from: 5, to: 2, delay: "0.9s"  },
+  { from: 6, to: 2, delay: "1.5s"  },
+  { from: 7, to: 3, delay: "2.1s"  },
+];
+
+const PIPELINE_METRICS = [
+  { value: "15+",    label: "tools in loop" },
+  { value: "0.808",  label: "NDCG@10 retrieval" },
+  { value: "28-59ms", label: "search p50" },
+];
+
+const MOBILE_PHASES = [
+  "Guard — input safety & policy",
+  "Understand — intent & context",
+  "ReAct Loop — 15+ tools, parallel calls",
+  "Synthesis — grounded answer",
+  "Persist — session memory",
 ];
 
 const AgentFlowCard = () => (
-  <div className="p-6 h-full flex flex-col">
-    <p className="text-foreground/60 font-mono text-xs uppercase tracking-widest mb-1">
-      Architecture
+  <div className="p-5 h-full flex flex-col">
+    <p className="text-foreground/60 font-mono text-xs uppercase tracking-widest mb-0.5">
+      Architecture — live in production
     </p>
-    <h3 className="text-foreground font-bold text-lg mb-4">Multi-Agent Topology</h3>
+    <h3 className="text-foreground font-bold text-lg mb-2">LLM Agent Turn Pipeline</h3>
     <div className="flex-1 flex items-center justify-center">
       <div className="w-full sm:hidden">
         <div className="grid gap-2">
-          {["Orchestrator", "RAG Agent", "Code Agent", "Search Agent", "Tool Results"].map((label, idx) => (
+          {MOBILE_PHASES.map((label, idx) => (
             <div key={label} className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-muted border border-border font-mono text-xs text-foreground/70">
+              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-muted border border-border font-mono text-xs text-foreground/70 shrink-0">
                 {idx + 1}
               </span>
               <span className="flex-1 rounded-xl border border-border bg-background/40 px-3 py-2 text-sm text-foreground/80">
@@ -218,9 +237,9 @@ const AgentFlowCard = () => (
       </div>
 
       <svg
-        viewBox="0 0 400 280"
+        viewBox="0 0 484 176"
         preserveAspectRatio="xMidYMid meet"
-        className="hidden sm:block w-full h-auto max-h-[220px]"
+        className="hidden sm:block w-full h-auto max-h-[118px]"
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
@@ -272,21 +291,21 @@ const AgentFlowCard = () => (
         {AGENT_NODES.map((n, i) => (
           <g key={`node-${i}`}>
             <rect
-              x={n.x - 52} y={n.y - 16}
-              width="104" height="32"
+              x={n.x - 44} y={n.y - 14}
+              width="88" height="28"
               rx="8"
               fill="rgba(255,255,255,0.92)"
               stroke={n.color}
-              strokeWidth={i === 0 ? "1.5" : "1"}
-              strokeOpacity={i === 0 ? "0.8" : "0.4"}
+              strokeWidth={n.id === "react" ? "1.5" : "1"}
+              strokeOpacity={n.id === "react" ? "0.8" : "0.4"}
             />
             <text
-              x={n.x} y={n.y + 5}
+              x={n.x} y={n.y + 4}
               textAnchor="middle"
-              fontSize={i === 0 ? "9" : "8"}
+              fontSize={n.id === "react" ? "9" : "8"}
               fontFamily="monospace"
               fill={n.color}
-              fontWeight={i === 0 ? "bold" : "normal"}
+              fontWeight={n.id === "react" ? "bold" : "normal"}
             >
               {n.label}
             </text>
@@ -294,8 +313,16 @@ const AgentFlowCard = () => (
         ))}
       </svg>
     </div>
-    <p className="text-foreground/40 text-xs font-mono text-center mt-2">
-      CrewAI · MCP Protocol · gRPC · SSE
+    <div className="mt-2 grid grid-cols-3 gap-2 border-t border-border pt-2">
+      {PIPELINE_METRICS.map((m) => (
+        <div key={m.label} className="flex flex-col items-center">
+          <span className="text-sm font-bold text-foreground font-mono">{m.value}</span>
+          <span className="text-foreground/40 text-[10px] uppercase tracking-wider text-center">{m.label}</span>
+        </div>
+      ))}
+    </div>
+    <p className="text-foreground/40 text-[10px] font-mono text-center mt-1.5 truncate">
+      Go · gRPC · Elasticsearch BM25+kNN · LiteLLM multi-provider · LLM-judge CI gate
     </p>
   </div>
 );
